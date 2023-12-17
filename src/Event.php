@@ -61,6 +61,12 @@ abstract class Event
             return $states->first();
         }
 
+        // If the type is an alias, return the first state that matches the alias
+        if (array_key_exists($state_type, $states->aliases)) {
+            return $states[array_search($state_type, array_keys($states->aliases))];
+        }
+
+
         return $states->firstWhere(fn (State $state) => $state::class === $state_type);
     }
 

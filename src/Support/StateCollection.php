@@ -13,7 +13,7 @@ use Thunk\Verbs\State;
  */
 class StateCollection extends Collection
 {
-    protected array $aliases = [];
+    public array $aliases = [];
 
     public function alias(?string $alias, string $key): static
     {
